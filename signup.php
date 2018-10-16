@@ -13,24 +13,24 @@ if (isset($data['do_signup'])) {
     }
 
     if (trim($data['Surname']) == '') {
-        $errors[] = 'Surname';
+        $errors[] = 'Enter Last Name!';
     }
     if (trim($data['email']) == '') {
         $errors[] = 'Enter Email!';
     }
 
     if ($data['password'] == '') {
-        $errors[] = 'Enter Password';
+        $errors[] = 'Enter Password!';
     }
 
     if ($data['password_2'] != $data['password']) {
-        $errors[] = 'Passwords do not match';
+        $errors[] = 'Passwords do not match!';
     }
 
     if (R::count('users', "email = ? ", array($data['email']))
         > 0) {
         echo "<a href='login.php'> Signup </a> ";
-        $errors[] = 'User with such email already exists ';
+        $errors[] = 'User with such email already exists !';
 
     }
 
