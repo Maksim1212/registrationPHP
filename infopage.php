@@ -1,25 +1,18 @@
 <?php
 session_start();
-
 require  "db.php";
-echo  "Hello nice to meet you".PHP_EOL;
-// Если посетитель "вошёл" - приветствуем его
-//if (isset($_SESSION['logged_user'] ))
-//{
+if(isset($_SESSION['logged_user'])) {
+   // var_dump($_SESSION['logged_user']);
+    echo "Hello nice to meet you" . PHP_EOL;
 
-       echo($_SESSION['logged_user'] );
-        var_dump($_SESSION['logged_user'] );
-//var_dump($_SESSION['logged_user'] = $_POST['email']);
-   // $_SESSION['logged_user']=$_POST['email'];
-//$_SESSION['logged_user'] = $_POST['email'];
-   // echo $_SESSION['logged_user'];
 
+    echo ($_SESSION['logged_user']['name']) . PHP_EOL;
+    echo ($_SESSION['logged_user']['surname']) . PHP_EOL;
+    echo ($_SESSION['logged_user'] ['registrationDatedate']) . PHP_EOL;
 
     echo "<a href='logout.php'> Выход </a>";
+}
 
-//}
-//else
-//{
-  //  echo "<a href='login.php'> вход </a> ;";
-//}
+else echo "You not logged !!!!!";
+
 ?>

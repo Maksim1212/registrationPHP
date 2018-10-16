@@ -11,10 +11,11 @@ if( isset($data['do_login']))
         if (password_verify($data['password'], $user->password))
         {
             $_SESSION['logged_user'] =[
-                'email' => $user->email,
-                'name' => $user->_name,
-                'date' => $user->_array,
-            ];
+            'email' => $user->email,
+            'name' => $user->name,
+            'registrationDatedate' => $user->registration_date,
+            'surname' => $user->surname,
+        ];
 
             header("Location: infopage.php"); exit;
 

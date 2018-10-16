@@ -1,5 +1,7 @@
 <?php
+session_start();
 require "db.php";
+
 
 $data = $_POST;
 if (isset($data['do_signup'])) {
@@ -34,11 +36,11 @@ if (isset($data['do_signup'])) {
 
     if (empty($errors)) {
         $user = R::dispense('users');
-        $user->Name = $data['Name'];
-        $user->Surname = $data ['Surname'];
+        $user->name = $data['Name'];
+        $user->surname = $data ['Surname'];
         $user->email = $data['email'];
         $user->password = password_hash($data['password'], PASSWORD_DEFAULT);
-        $user->$date = date("Y-m-d H:i:s");
+        $user->registrationDate = date("Y-m-d H:i:s");
 
         R::store($user);
 
