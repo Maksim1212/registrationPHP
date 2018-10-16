@@ -1,6 +1,6 @@
 <?php
+session_start();
 require "db.php";
-
 $data = $_POST;
 if( isset($data['do_login']))
 {
@@ -10,7 +10,11 @@ if( isset($data['do_login']))
     {
         if (password_verify($data['password'], $user->password))
         {
-            $_SESSION['logged_user'] = $user;
+            $_SESSION['logged_user'] =[
+                'email' => $user->email,
+                'name' => $user->_name,
+                'date' => $user->_array,
+            ];
 
             header("Location: infopage.php"); exit;
 
@@ -43,7 +47,6 @@ if( isset($data['do_login']))
     <p><strong>Your password</strong>:</p>
     <input  center" type="password" name="password" value="<?php echo @$data['password']; ?>">
     </p>
-
 
     <p>
         <button  center" type="submit" name='do_login'>Login!</button>

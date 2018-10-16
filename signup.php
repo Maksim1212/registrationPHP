@@ -34,14 +34,14 @@ if (isset($data['do_signup'])) {
 
     if (empty($errors)) {
         $user = R::dispense('users');
-
-        $user->Name = $data ['Name'];
+        $user->Name = $data['Name'];
         $user->Surname = $data ['Surname'];
         $user->email = $data['email'];
         $user->password = password_hash($data['password'], PASSWORD_DEFAULT);
-        //$user->date("Y/m/d") = $data['data'];
-        $user->$data = date("Y-m-d H:i:s");
+        $user->$date = date("Y-m-d H:i:s");
+
         R::store($user);
+
         header("Location: infopage.php");
     } else {
         echo '<div style="color: #ff0000;">' . array_shift($errors) . '</div><hr>';
@@ -49,13 +49,13 @@ if (isset($data['do_signup'])) {
 }
 ?>
 
-<form style="text-align: center" action="signup.php" method="POST" >
+<form style="text-align: center" action="signup.php" method="POST">
 
-<body style="background: #faa152">
+    <body style="background: #faa152">
 
     <p><strong>Your First Name</strong>:
     <p>
-        <input  type="text" name="Name" value="<?php echo @$data['Name']; ?>">
+        <input type="text" name="Name" value="<?php echo @$data['Name']; ?>">
     </p>
 
     <p><strong>Your Last Name</strong>:
@@ -80,5 +80,5 @@ if (isset($data['do_signup'])) {
     <p>
         <button style="border slategray" type="submit" name='do_signup'>Registration Now!</button>
     </p>
-</body>
+    </body>
 </form>
