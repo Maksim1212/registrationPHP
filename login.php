@@ -50,7 +50,7 @@ if( isset($data['do_login']))
     </p>
 
     <p>
-        <button  center" type="submit" name='do_login'>Login!</button>
+        <button style="background: red" center" type="submit" name='do_login'>Login!</button>
     </p>
 </body>
 </form>

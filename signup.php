@@ -29,7 +29,7 @@ if (isset($data['do_signup'])) {
 
     if (R::count('users', "email = ? ", array($data['email']))
         > 0) {
-        echo "<a href='login.php'> вход </a> ";
+        echo "<a href='login.php'> Signup </a> ";
         $errors[] = 'User with such email already exists ';
 
     }
