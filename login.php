@@ -27,6 +27,7 @@ if( isset($data['do_login']))
     else
     {
         $errors[] = 'User with this Email was not found';
+        echo "<a href='signup.php'> Registration </a>";
     }
     if( ! empty($errors))
     {

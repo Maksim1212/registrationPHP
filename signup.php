@@ -44,6 +44,12 @@ if (isset($data['do_signup'])) {
 
         R::store($user);
 
+            $_SESSION['logged_user'] =[
+                'email' => $user->email,
+                'name' => $user->name,
+                'registrationDatedate' => $user->registration_date,
+                'surname' => $user->surname,
+            ];
         header("Location: infopage.php");
     } else {
         echo '<div style="color: #ff0000;">' . array_shift($errors) . '</div><hr>';
